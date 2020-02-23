@@ -40,6 +40,16 @@ class _SettingsItemLanguageState extends State<SettingsItemLanguage> {
                   value: 0,
                   activeColor: Colors.pink,
                   onChanged: _handleRadioValueChange1),
+              title: Text('Device'),
+              subtitle: Text('Use device language'),
+              onTap: () {},
+            ),
+            ListTile(
+              trailing: new Radio(
+                groupValue: _radioValue1,
+                  value: 0,
+                  activeColor: Colors.pink,
+                  onChanged: _handleRadioValueChange1),
               title: Text('English'),
               subtitle: Text('English'),
               onTap: () {},

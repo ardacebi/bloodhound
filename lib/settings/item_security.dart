@@ -17,16 +17,10 @@ class _SettingsItemSecurityState extends State<SettingsItemSecurity> {
           context: context,
           tiles: [
             ListTile(
-              trailing: new Switch(
-                  value: true,
-                  activeColor: Colors.pink,
-                  activeTrackColor: Colors.pinkAccent,
-                  onChanged: (value) {
-                    setState(() {});
-                  }),
-              title: Text('Account Privacy'),
-              subtitle: Text('When your account privacy is on, only approved friends will be able to see your friends and your meetups.'),
+              title: Text('Lockdown Mode'),
+              subtitle: Text("If you think your account is in danger or just want to keep it secure, you can disable other devices' access to your account."),
               onTap: () {},
+              trailing: Icon(Icons.keyboard_arrow_right),
             ),
             
           ],
