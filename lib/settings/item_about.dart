@@ -21,7 +21,7 @@ class _SettingsItemAboutState extends State<SettingsItemAbout> {
             ),
             ListTile(
               title: Text('Open Source Licenses'),
-              subtitle: Text('See open source licenses used in this application.'),
+              subtitle: Text('See open source licenses used in this application'),
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {},
             ),
