@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bloodhound/send_feedback.dart';
 import 'package:rounded_letter/rounded_letter.dart';
+import 'package:bloodhound/notifications/notifications.dart';
 
 class FriendsPage extends StatefulWidget {
   @override
@@ -10,22 +11,34 @@ class FriendsPage extends StatefulWidget {
 class _FriendsPageState extends State<FriendsPage> {
   @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Friends'),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.search),
-              tooltip: "Search",
-              onPressed: () {},
+      appBar: new AppBar(title: new Text('Friends'), actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.search),
+          tooltip: "Search",
+          onPressed: () {},
+        ),
+         IconButton(
+          icon: Icon(Icons.notifications),
+          tooltip: "Notifications",
+          onPressed: () {navigateToNotificationsPage(context);},
+        ),
+        PopupMenuButton(
+          onSelected: (result) {
+            if (result == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SendFeedbackPage()),
+              );
+            }
+          },
+          itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+            const PopupMenuItem(
+              child: Text('Send feedback'),
+              value: 0,
             ),
-            IconButton(
-              icon: Icon(Icons.feedback),
-              tooltip: "Send feedback",
-              onPressed: () {navigateToFeedbackPage(context);},
-            ),
+          ],
+        )
       ]),
       body: new ListView(
        children: ListTile.divideTiles(
@@ -80,3 +93,8 @@ class _FriendsPageState extends State<FriendsPage> {
 Future navigateToFeedbackPage(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => SendFeedbackPage()));
 }
+
+ Future navigateToNotificationsPage(context) async {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => NotificationsPage()));
+  }

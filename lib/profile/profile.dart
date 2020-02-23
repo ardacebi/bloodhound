@@ -3,6 +3,7 @@ import 'package:bloodhound/profile/edit_profile.dart';
 import 'package:bloodhound/schedule/event_details.dart';
 import 'package:bloodhound/send_feedback.dart';
 import 'package:bloodhound/settings/settings.dart';
+import 'package:bloodhound/notifications/notifications.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -10,11 +11,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  void _select() {
-    // Causes the app to rebuild with the new _selectedChoice.
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -40,10 +36,10 @@ class _ProfilePageState extends State<ProfilePage> {
         new Scaffold(
             appBar: new AppBar(title: new Text('Profile'), actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.feedback),
-                tooltip: "Send feedback",
+                icon: Icon(Icons.notifications),
+                tooltip: "Notifications",
                 onPressed: () {
-                  navigateToFeedbackPage(context);
+                  navigateToNotificationsPage(context);
                 },
               ),
               PopupMenuButton(
@@ -54,11 +50,22 @@ class _ProfilePageState extends State<ProfilePage> {
                       MaterialPageRoute(builder: (context) => SettingsPage()),
                     );
                   }
+                  if (result == 1) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SendFeedbackPage()),
+                    );
+                  }
                 },
                 itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                   const PopupMenuItem(
                     child: Text('Settings'),
                     value: 0,
+                  ),
+                  const PopupMenuItem(
+                    child: Text('Send feedback'),
+                    value: 1,
                   ),
                 ],
               )
@@ -82,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: new TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: _width / 15,
-                        color: Colors.white),
+                        ),
                   ),
                   new Padding(
                     padding: new EdgeInsets.only(top: 5.0),
@@ -104,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: new TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: _width / 25,
-                          color: Colors.white),
+                          ),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -118,11 +125,9 @@ class _ProfilePageState extends State<ProfilePage> {
                             margin:
                                 const EdgeInsets.only(left: 10.0, top: 15.0),
                             child: new RaisedButton(
-                              
                               child: new Text(
                                 "Edit Profile",
                                 style: TextStyle(color: Colors.black),
-                                
                               ),
                               color: Theme.of(context).accentColor,
                               onPressed: () {
@@ -154,7 +159,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.search),
                           border: OutlineInputBorder(),
-                          labelText: 'Search meetups',
+                          labelText: 'Search past meetups',
                         ),
                       )),
                   new Padding(
@@ -177,7 +182,9 @@ class _ProfilePageState extends State<ProfilePage> {
                             children: <Widget>[
                               FlatButton(
                                 child: const Text('SEE DETAILS'),
-                                onPressed: () {navigateToEventDetailsPage(context);},
+                                onPressed: () {
+                                  navigateToEventDetailsPage(context);
+                                },
                               ),
                             ],
                           ),
@@ -185,7 +192,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ),
-                  
                 ],
               ),
             )),
@@ -198,11 +204,11 @@ class _ProfilePageState extends State<ProfilePage> {
         children: <Widget>[
           new Text(
             '$count',
-            style: new TextStyle(color: Colors.white),
+            
           ),
           new Text(type,
               style: new TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.normal))
+                   fontWeight: FontWeight.normal))
         ],
       ));
 }
@@ -221,3 +227,8 @@ Future navigateToEventDetailsPage(context) async {
   Navigator.push(
       context, MaterialPageRoute(builder: (context) => EventDetailsPage()));
 }
+
+ Future navigateToNotificationsPage(context) async {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => NotificationsPage()));
+  }

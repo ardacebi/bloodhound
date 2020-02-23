@@ -11,8 +11,6 @@ final items = List<String>.generate(20, (i) => "Item ${i + 1}");
 class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
     return new Scaffold(
       appBar: new AppBar(title: new Text('Notifications'), actions: <Widget>[
         IconButton(
@@ -20,21 +18,19 @@ class _NotificationsPageState extends State<NotificationsPage> {
           tooltip: "Search",
           onPressed: () {},
         ),
-        IconButton(
-          icon: Icon(Icons.feedback),
-          tooltip: "Send feedback",
-          onPressed: () {
-            navigateToFeedbackPage(context);
-          },
-        ),
         PopupMenuButton(
           onSelected: (result) {
             if (result == 0) {}
+            if (result == 1) {}
           },
           itemBuilder: (BuildContext context) => <PopupMenuEntry>[
             const PopupMenuItem(
               child: Text('Clear all'),
               value: 0,
+            ),
+            const PopupMenuItem(
+              child: Text('Send feedback'),
+              value: 1,
             ),
           ],
         )

@@ -8,8 +8,6 @@ class SettingsItemNotifications extends StatefulWidget {
 class _SettingsItemNotificationsState extends State<SettingsItemNotifications> {
   @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
     return new Scaffold(
       appBar: new AppBar(title: new Text('Notifications')),
       body: new ListView(

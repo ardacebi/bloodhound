@@ -4,6 +4,7 @@ import 'package:bloodhound/notifications/notifications.dart';
 import 'package:bloodhound/friends/friends.dart';
 import 'package:bloodhound/profile/profile.dart';
 import 'package:bloodhound/schedule/schedule.dart';
+import 'package:bloodhound/plan/plan.dart';
 import 'package:animations/animations.dart';
 
 void main() {
@@ -14,7 +15,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      
       title: 'Bloodhound',
       darkTheme: ThemeData.dark(),
       home: MyBottomNavigationBar(),
@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.lightBlue[800],
         accentColor: Colors.cyanAccent[600],
       ),
-      
     );
   }
 }
@@ -35,18 +34,16 @@ class MyBottomNavigationBar extends StatefulWidget {
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-
   int _selectedIndex = 0;
   final List<Widget> _children = [
     HomePage(),
     SchedulePage(),
+    PlanPage(),
     FriendsPage(),
-    NotificationsPage(),
     ProfilePage(),
   ];
 
-  void onTappedBar(int index)
-  {
+  void onTappedBar(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -69,22 +66,27 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           );
         },
         child: _children[_selectedIndex],
-        ),
-      
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
         onTap: onTappedBar,
         currentIndex: _selectedIndex,
-         items: [
+        items: [
           BottomNavigationBarItem(
-              icon: new Icon(Icons.home), title: new Text('Home')),
+            icon: new Icon(Icons.home),
+            title: new Text('Home'),
+          ),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.calendar_today), title: new Text('Schedule')),
+              icon: new Icon(Icons.calendar_view_day),
+              title: new Text('Schedule')),
+          BottomNavigationBarItem(
+              icon: new Icon(Icons.add), title: new Text('Plan Event')),
           BottomNavigationBarItem(
               icon: new Icon(Icons.group), title: new Text('Friends')),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.notifications), title: new Text('Notifications')),
-          BottomNavigationBarItem(
-              icon: new Icon(Icons.person), title: new Text('Profile')),
+              icon: new Icon(Icons.account_circle), title: new Text('Profile')),
         ],
       ),
     );

@@ -9,10 +9,6 @@ class _SettingsItemLanguageState extends State<SettingsItemLanguage> {
 
   int _radioValue1 = -1;
   int correctScore = 0;
-  int _radioValue2 = -1;
-  int _radioValue3 = -1;
-  int _radioValue4 = -1;
-  int _radioValue5 = -1;
 
   void _handleRadioValueChange1(int value) {
     setState(() {
@@ -26,8 +22,6 @@ class _SettingsItemLanguageState extends State<SettingsItemLanguage> {
 
  @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
     return new Scaffold(
       appBar: new AppBar(title: new Text('Language')),
       body: new ListView(

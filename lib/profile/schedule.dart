@@ -23,36 +23,6 @@ class _SchedulePageState extends State<SchedulePage> with RouteAware {
     print(_selectedEvents);
   }
 
-  List _selectedEvents;
-  DateTime _selectedDay;
-
-  final Map _events = {
-    DateTime(2020, 3, 1): [
-      {'name': 'Event A', 'isDone': true},
-    ],
-    DateTime(2020, 3, 4): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-    ],
-    DateTime(2020, 3, 5): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-    ],
-    DateTime(2020, 3, 13): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-      {'name': 'Event C', 'isDone': false},
-    ],
-    DateTime(2020, 3, 15): [
-      {'name': 'Event A', 'isDone': true},
-      {'name': 'Event B', 'isDone': true},
-      {'name': 'Event C', 'isDone': false},
-    ],
-    DateTime(2020, 3, 26): [
-      {'name': 'Event A', 'isDone': false},
-    ],
-  };
-
   @override
   void initState() {
     super.initState();
@@ -66,7 +36,9 @@ class _SchedulePageState extends State<SchedulePage> with RouteAware {
         IconButton(
           icon: Icon(Icons.notifications),
           tooltip: "Notifications",
-          onPressed: () {navigateToNotificationsPage(context);},
+          onPressed: () {
+            navigateToNotificationsPage(context);
+          },
         ),
         PopupMenuButton(
           onSelected: (result) {
@@ -104,7 +76,7 @@ class _SchedulePageState extends State<SchedulePage> with RouteAware {
                   eventDoneColor: Colors.green,
                   eventColor: Colors.grey),
             ),
-            // _buildEventList(),
+            _buildEventList(),
           ],
         ),
       ),
@@ -112,26 +84,55 @@ class _SchedulePageState extends State<SchedulePage> with RouteAware {
   }
 }
 
-/* Widget _buildEventList() {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) => Container(
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 1.5, color: Colors.black12),
-                ),
-              ),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 4.0),
-              child: ListTile(
-                title: Text(_selectedEvents[index]['name'].toString()),
-                onTap: () {},
-              ),
-            ),
-        itemCount: _selectedEvents.length,
+List _selectedEvents;
+DateTime _selectedDay;
+
+final Map _events = {
+  DateTime(2020, 3, 1): [
+    {'name': 'Event A', 'isDone': true},
+  ],
+  DateTime(2020, 3, 4): [
+    {'name': 'Event A', 'isDone': true},
+    {'name': 'Event B', 'isDone': true},
+  ],
+  DateTime(2020, 3, 5): [
+    {'name': 'Event A', 'isDone': true},
+    {'name': 'Event B', 'isDone': true},
+  ],
+  DateTime(2020, 3, 13): [
+    {'name': 'Event A', 'isDone': true},
+    {'name': 'Event B', 'isDone': true},
+    {'name': 'Event C', 'isDone': false},
+  ],
+  DateTime(2020, 3, 15): [
+    {'name': 'Event A', 'isDone': true},
+    {'name': 'Event B', 'isDone': true},
+    {'name': 'Event C', 'isDone': false},
+  ],
+  DateTime(2020, 3, 26): [
+    {'name': 'Event A', 'isDone': false},
+  ],
+};
+
+Widget _buildEventList() {
+  return Expanded(
+    child: ListView.builder(
+      itemBuilder: (BuildContext context, int index) => Container(
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(width: 1.5, color: Colors.black12),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 4.0),
+        child: ListTile(
+          title: Text(_selectedEvents[index]['name'].toString()),
+          onTap: () {},
+        ),
       ),
-    );
-  } */
+      itemCount: _selectedEvents.length,
+    ),
+  );
+}
 
 Future navigateToFeedbackPage(context) async {
   Navigator.push(
@@ -143,7 +144,7 @@ Future navigateToEventDetailsPage(context) async {
       context, MaterialPageRoute(builder: (context) => EventDetailsPage()));
 }
 
- Future navigateToNotificationsPage(context) async {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => NotificationsPage()));
-  }
+Future navigateToNotificationsPage(context) async {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => NotificationsPage()));
+}
