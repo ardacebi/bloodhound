@@ -17,13 +17,14 @@ class _SettingsItemAboutState extends State<SettingsItemAbout> {
           context: context,
           tiles: [
             ListTile(
-              title: Text('Application version'),
-              subtitle: Text('1.0.0-beta.1'),
+              title: Text('App version'),
+              subtitle: Text('1.0.0-beta.1 (1)'),
               onTap: () {},
             ),
             ListTile(
-              title: Text('Türkçe'),
-              subtitle: Text('Turkish'),
+              title: Text('Open Source Licenses'),
+              subtitle: Text('See open source licenses used in this application.'),
+              trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {},
             ),
             
