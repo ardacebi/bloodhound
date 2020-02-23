@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bloodhound/send_feedback.dart';
+import 'package:image_crop/image_crop.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override

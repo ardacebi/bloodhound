@@ -16,7 +16,9 @@ class _HomePageState extends State<HomePage> {
         IconButton(
           icon: Icon(Icons.notifications),
           tooltip: "Notifications",
-          onPressed: () {navigateToNotificationsPage(context);},
+          onPressed: () {
+            navigateToNotificationsPage(context);
+          },
         ),
         PopupMenuButton(
           onSelected: (result) {
@@ -79,10 +81,10 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
- Future navigateToNotificationsPage(context) async {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => NotificationsPage()));
-  }
+Future navigateToNotificationsPage(context) async {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => NotificationsPage()));
+}
 
 Future navigateToEventDetailsPage(context) async {
   Navigator.push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:bloodhound/home.dart';
 import 'package:bloodhound/notifications/notifications.dart';
 import 'package:bloodhound/friends/friends.dart';
@@ -6,6 +7,7 @@ import 'package:bloodhound/profile/profile.dart';
 import 'package:bloodhound/schedule/schedule.dart';
 import 'package:bloodhound/plan/plan.dart';
 import 'package:animations/animations.dart';
+import 'package:camera/camera.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
       home: MyBottomNavigationBar(),
       theme: ThemeData(
         // Define the default brightness and colors.
+        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],
         accentColor: Colors.cyanAccent[600],

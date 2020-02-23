@@ -87,9 +87,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   new Text(
                     'Arda Çebi',
                     style: new TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: _width / 15,
-                        ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: _width / 15,
+                    ),
                   ),
                   new Padding(
                     padding: new EdgeInsets.only(top: 5.0),
@@ -109,9 +109,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: new Text(
                       'co-founder @ bloodhound, student, photographer, coder and many more',
                       style: new TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: _width / 25,
-                          ),
+                        fontWeight: FontWeight.normal,
+                        fontSize: _width / 25,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -126,7 +126,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 const EdgeInsets.only(left: 10.0, top: 15.0),
                             child: new RaisedButton(
                               child: new Text(
-                                "Edit Profile",
+                                "EDIT PROFILE",
                                 style: TextStyle(color: Colors.black),
                               ),
                               color: Theme.of(context).accentColor,
@@ -204,11 +204,8 @@ class _ProfilePageState extends State<ProfilePage> {
         children: <Widget>[
           new Text(
             '$count',
-            
           ),
-          new Text(type,
-              style: new TextStyle(
-                   fontWeight: FontWeight.normal))
+          new Text(type, style: new TextStyle(fontWeight: FontWeight.normal))
         ],
       ));
 }
@@ -228,7 +225,7 @@ Future navigateToEventDetailsPage(context) async {
       context, MaterialPageRoute(builder: (context) => EventDetailsPage()));
 }
 
- Future navigateToNotificationsPage(context) async {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => NotificationsPage()));
-  }
+Future navigateToNotificationsPage(context) async {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => NotificationsPage()));
+}
