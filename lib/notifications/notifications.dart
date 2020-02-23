@@ -28,16 +28,16 @@ class _NotificationsPageState extends State<NotificationsPage> {
           },
         ),
         PopupMenuButton(
-                onSelected: (result) {
-                  if (result == 0) {}
-                },
-                itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                  const PopupMenuItem(
-                    child: Text('Clear all'),
-                    value: 0,
-                  ),
-                ],
-              )
+          onSelected: (result) {
+            if (result == 0) {}
+          },
+          itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+            const PopupMenuItem(
+              child: Text('Clear all'),
+              value: 0,
+            ),
+          ],
+        )
       ]),
       body: ListView.builder(
         itemCount: items.length,
@@ -61,7 +61,13 @@ class _NotificationsPageState extends State<NotificationsPage> {
                   .showSnackBar(SnackBar(content: Text("$item dismissed")));
             },
             // Show a red background as the item is swiped away.
-            background: Container(color: Colors.red),
+            background: Container(
+              alignment: AlignmentDirectional.centerEnd,
+              padding: new EdgeInsets.only(right:20.0),
+              color: Colors.red, 
+              child: Icon(Icons.delete)
+              ),
+              direction: DismissDirection.endToStart,
             child: ListTile(title: Text('$item')),
           );
         },
