@@ -2,6 +2,7 @@ import 'package:bloodhound/custom/widgets/buttons/button_send_feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SendFeedbackPage extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class SendFeedbackPage extends StatefulWidget {
 }
 
 class _SendFeedbackPageState extends State<SendFeedbackPage> {
+   final keyIsFirstLoaded = 'is_first_loaded';
 
   @override
   Widget build(BuildContext context) {
@@ -113,8 +115,10 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
     );
   }
 
-
-showDialogIfFirstLoaded(BuildContext context) async {
+ showDialogIfFirstLoaded(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstLoaded = prefs.getBool(keyIsFirstLoaded);
+    if (isFirstLoaded == null) {
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -129,6 +133,7 @@ showDialogIfFirstLoaded(BuildContext context) async {
                 onPressed: () {
                   // Close the dialog
                   Navigator.of(context).pop();
+                  prefs.setBool(keyIsFirstLoaded, false);
                 },
               ),
             ],
@@ -137,3 +142,4 @@ showDialogIfFirstLoaded(BuildContext context) async {
       );
     }
   }
+}
