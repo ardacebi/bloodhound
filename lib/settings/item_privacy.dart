@@ -9,7 +9,20 @@ class _SettingsItemPrivacyState extends State<SettingsItemPrivacy> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Privacy')),
+      appBar: new AppBar(
+        title: new Text('Privacy'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xffe9af84),
+              Color(0xffba7e51),
+            ])
+          ),
+       ),    
+        ),
       body: new ListView(
         children: ListTile.divideTiles(
           context: context,
