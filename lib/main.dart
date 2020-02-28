@@ -73,7 +73,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        iconSize: 27.0,
+        iconSize: 27.5,
         type: BottomNavigationBarType.fixed,
         onTap: onTappedBar,
         currentIndex: _selectedIndex,
