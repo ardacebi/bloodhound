@@ -10,7 +10,19 @@ class _SettingsItemHelpState extends State<SettingsItemHelp> {
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Help')),
+      appBar: new AppBar(
+        title: new Text('Help'),
+        flexibleSpace: Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: <Color>[
+                        Color(0xff585ad6),
+                        Color(0xff2c8cb0),
+                      ])),
+                ),
+        ),
       body: new SingleChildScrollView(
         child: new Column(
           children: <Widget>[

@@ -11,7 +11,20 @@ class _PlanPageState extends State<PlanPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Plan Event'), actions: <Widget>[
+      appBar: new AppBar(
+        title: new Text('Plan Event'), 
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xff585ad6),
+              Color(0xff2c8cb0),
+            ])
+          ),
+       ),  
+        actions: <Widget>[
          IconButton(
           icon: Icon(Icons.notifications),
           tooltip: "Notifications",

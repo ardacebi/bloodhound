@@ -1,3 +1,4 @@
+import 'package:bloodhound/custom/widgets/buttons/button_save_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:bloodhound/send_feedback.dart';
 import 'package:image_crop/image_crop.dart';
@@ -14,7 +15,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
     final String imgUrl =
         'https://scontent-atl3-1.cdninstagram.com/v/t51.2885-19/79807139_780619172452888_7800524258739748864_n.jpg?_nc_ht=scontent-atl3-1.cdninstagram.com&_nc_ohc=jpxKFXBam5MAX-ZQ7bM&oh=0aed6910f023e71648653e821030b577&oe=5E807DBB';
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Edit Profile'), actions: <Widget>[
+      appBar: new AppBar(
+        title: new Text('Edit Profile'), 
+         flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xff585ad6),
+              Color(0xff2c8cb0),
+            ])
+          ),
+       ),  
+        actions: <Widget>[
         IconButton(
           icon: Icon(Icons.feedback),
           tooltip: "Send feedback",
@@ -89,11 +103,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
               padding: new EdgeInsets.only(top: 10.0),
               child: Container(
                 margin: const EdgeInsets.only(left: 10.0, top: 15.0),
-                child: new RaisedButton.icon(
-                  label: Text("Save profile"),
-                  icon: Icon(Icons.save),
-                  onPressed: () {},
-                ),
+                child: new BloodhoundButtonSaveProfile(
+                            ),
               ),
             ),
           ],

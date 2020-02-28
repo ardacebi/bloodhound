@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyanAccent[600],
+        accentColor: Color(0xff585ad6),
       ),
     );
   }

@@ -23,7 +23,7 @@ class _SettingsItemPrivacyState extends State<SettingsItemPrivacy> {
                     setState(() {});
                   }),
               title: Text('Private Account'),
-              subtitle: Text('When this is on, only approved friends will be able to see your friends and your meetups.'),
+              subtitle: Text('When enabled, only approved friends will be able to see your friends and your meetups.'),
               onTap: () {},
             ),
             

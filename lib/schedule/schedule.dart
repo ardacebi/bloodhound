@@ -62,7 +62,20 @@ class _SchedulePageState extends State<SchedulePage> with RouteAware {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(title: new Text('Schedule'), actions: <Widget>[
+      appBar: new AppBar(
+        title: new Text('Schedule'), 
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xff585ad6),
+              Color(0xff2c8cb0),
+            ])
+          ),
+       ),  
+        actions: <Widget>[
         IconButton(
           icon: Icon(Icons.notifications),
           tooltip: "Notifications",
@@ -101,11 +114,11 @@ class _SchedulePageState extends State<SchedulePage> with RouteAware {
                   onDateSelected: (date) => _handleNewDate(date),
                   isExpandable: true,
                   showTodayIcon: true,
-                  eventDoneColor: Colors.green,
-                  eventColor: Colors.grey),
+                  eventDoneColor: Color(0xff585ad6),
+                  eventColor: Color(0xff2c8cb0),
             ),
             // _buildEventList(),
-          ],
+            )],
         ),
       ),
     );

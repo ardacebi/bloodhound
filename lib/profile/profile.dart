@@ -1,3 +1,4 @@
+import 'package:bloodhound/custom/widgets/buttons/button_edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:bloodhound/profile/edit_profile.dart';
 import 'package:bloodhound/schedule/event_details.dart';
@@ -34,42 +35,55 @@ class _ProfilePageState extends State<ProfilePage> {
           ), */
             ),
         new Scaffold(
-            appBar: new AppBar(title: new Text('Profile'), actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.notifications),
-                tooltip: "Notifications",
-                onPressed: () {
-                  navigateToNotificationsPage(context);
-                },
-              ),
-              PopupMenuButton(
-                onSelected: (result) {
-                  if (result == 0) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SettingsPage()),
-                    );
-                  }
-                  if (result == 1) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SendFeedbackPage()),
-                    );
-                  }
-                },
-                itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                  const PopupMenuItem(
-                    child: Text('Settings'),
-                    value: 0,
+            appBar: new AppBar(
+                title: new Text('Profile'),
+                flexibleSpace: Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: <Color>[
+                        Color(0xff585ad6),
+                        Color(0xff2c8cb0),
+                      ])),
+                ),
+                actions: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.notifications),
+                    tooltip: "Notifications",
+                    onPressed: () {
+                      navigateToNotificationsPage(context);
+                    },
                   ),
-                  const PopupMenuItem(
-                    child: Text('Send feedback'),
-                    value: 1,
-                  ),
-                ],
-              )
-            ]),
+                  PopupMenuButton(
+                    onSelected: (result) {
+                      if (result == 0) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SettingsPage()),
+                        );
+                      }
+                      if (result == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SendFeedbackPage()),
+                        );
+                      }
+                    },
+                    itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                      const PopupMenuItem(
+                        child: Text('Settings'),
+                        value: 0,
+                      ),
+                      const PopupMenuItem(
+                        child: Text('Send feedback'),
+                        value: 1,
+                      ),
+                    ],
+                  )
+                ]),
             backgroundColor: Colors.transparent,
             body: new SingleChildScrollView(
               child: new Column(
@@ -124,15 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: Container(
                             margin:
                                 const EdgeInsets.only(left: 10.0, top: 15.0),
-                            child: new RaisedButton(
-                              child: new Text(
-                                "EDIT PROFILE",
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              color: Theme.of(context).accentColor,
-                              onPressed: () {
-                                navigateToEditPage(context);
-                              },
+                            child: new BloodhoundButtonEdit(
                             ),
                           ),
                         ),

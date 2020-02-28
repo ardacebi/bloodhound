@@ -12,14 +12,30 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Home'), actions: <Widget>[
+      appBar: new AppBar(
+       title: new Text('Home'),
+       flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xff585ad6),
+              Color(0xff2c8cb0),
+            ])
+          ),
+       ),    
+         
+       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.notifications),
           tooltip: "Notifications",
           onPressed: () {
             navigateToNotificationsPage(context);
           },
+          
         ),
+        
         PopupMenuButton(
           onSelected: (result) {
             if (result == 0) {
@@ -37,6 +53,7 @@ class _HomePageState extends State<HomePage> {
           ],
         )
       ]),
+      
       body: new SingleChildScrollView(
         child: new Column(
           children: <Widget>[

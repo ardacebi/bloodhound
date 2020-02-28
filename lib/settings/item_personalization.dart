@@ -44,7 +44,7 @@ void _settingModalBottomSheetTheme(context) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext bc) {
-        return Container(
+        return SafeArea(
           child: new Wrap(
             children: <Widget>[
               new ListTile(
@@ -75,7 +75,7 @@ void _settingModalBottomSheetIcon(context) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext bc) {
-        return Container(
+        return SafeArea(
           child: new Wrap(
             children: <Widget>[
               new ListTile(

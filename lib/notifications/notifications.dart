@@ -12,7 +12,20 @@ class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Notifications'), actions: <Widget>[
+      appBar: new AppBar(
+        title: new Text('Notifications'), 
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xff585ad6),
+              Color(0xff2c8cb0),
+            ])
+          ),
+       ),  
+        actions: <Widget>[
         IconButton(
           icon: Icon(Icons.search),
           tooltip: "Search",

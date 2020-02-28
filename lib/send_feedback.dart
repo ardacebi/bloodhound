@@ -1,3 +1,4 @@
+import 'package:bloodhound/custom/widgets/buttons/button_send_feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -11,7 +12,21 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Send Feedback')),
+      appBar: new AppBar(
+        title: new Text('Send Feedback'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+              Color(0xff585ad6),
+              Color(0xff2c8cb0),
+            ])
+          ),
+       ),  
+        ),
+        
       body: new SingleChildScrollView(
         child: new Column(
           children: <Widget>[
@@ -103,9 +118,7 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
               padding: new EdgeInsets.only(top: 10.0),
               child: Container(
                 margin: const EdgeInsets.only(left: 10.0, top: 15.0),
-                child: new RaisedButton.icon(
-                  label:Text("Send Feedback"),
-                   icon: Icon(Icons.send),
+                child: new BloodhoundButtonSendFeedback(
                   onPressed: () {
                     FilePicker.getMultiFilePath();
                   },
