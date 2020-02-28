@@ -43,8 +43,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: <Color>[
-                        Color(0xff585ad6),
-                        Color(0xff2c8cb0),
+                        Color(0xffe9af84),
+                        Color(0xffba7e51),
                       ])),
                 ),
                 actions: <Widget>[

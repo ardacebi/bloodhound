@@ -20,13 +20,13 @@ class BloodhoundButtonEdit extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xff374ABE), Color(0xff64B6FF)],
+                colors: [Color(0xff573b25), Color(0xffab8060)],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),
               borderRadius: BorderRadius.circular(30.0)),
           child: Container(
-            constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth: 400.0, minHeight: 50.0),
             alignment: Alignment.center,
             child: Text(
               "Edit Profile",

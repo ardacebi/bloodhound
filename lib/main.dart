@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         // Define the default brightness and colors.
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         brightness: Brightness.light,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Color(0xff585ad6),
+        primaryColor: Color(0xffba7e51),
+        accentColor: Color(0xffe9af84),
       ),
     );
   }
@@ -73,6 +73,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        iconSize: 27.0,
         type: BottomNavigationBarType.fixed,
         onTap: onTappedBar,
         currentIndex: _selectedIndex,

@@ -1,6 +1,7 @@
 import 'package:bloodhound/custom/widgets/buttons/button_send_feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'dart:async';
 
 class SendFeedbackPage extends StatefulWidget {
   @override
@@ -8,8 +9,10 @@ class SendFeedbackPage extends StatefulWidget {
 }
 
 class _SendFeedbackPageState extends State<SendFeedbackPage> {
+
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration.zero, () => showDialogIfFirstLoaded(context));
     final _width = MediaQuery.of(context).size.width;
     return new Scaffold(
       appBar: new AppBar(
@@ -20,8 +23,8 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: <Color>[
-              Color(0xff585ad6),
-              Color(0xff2c8cb0),
+              Color(0xffe9af84),
+              Color(0xffba7e51),
             ])
           ),
        ),  
@@ -31,31 +34,10 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
         child: new Column(
           children: <Widget>[
             new Padding(
-              padding: new EdgeInsets.only(
-                  top: 15.0, left: 15.0, right: 15.0, bottom: 15.0),
-              child: Text(
-                  "You've probably seen the feedback icon located at the top right of every page. This is because this app is under Beta testing and not stable. But it will, with your help.",
-                  style: TextStyle()),
-            ),
-            new Padding(
-              padding: new EdgeInsets.only(
-                  top: 15.0, left: 15.0, right: 15.0, bottom: 15.0),
-              child: Text(
-                  "From this page, you can submit your feedback and your thoughts for us to improve the app.",
-                  style: TextStyle()),
-            ),
-            new Padding(
-              padding: new EdgeInsets.only(
-                  top: 15.0, left: 15.0, right: 15.0, bottom: 15.0),
-              child: Text(
-                  "Your feedbacks can be about any bugs or design issues you spotted, or your thoughts about the app in general.",
-                  style: TextStyle()),
-            ),
-            new Padding(
                 padding: new EdgeInsets.only(
                     left: _width / 27,
                     right: _width / 27,
-                    top: _width / 100,
+                    top: _width / 20,
                     bottom: _width / 30),
                 child: TextField(
                   textCapitalization: TextCapitalization.sentences,
@@ -130,4 +112,28 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
       ),
     );
   }
-}
+
+
+showDialogIfFirstLoaded(BuildContext context) async {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: new Text("About Sending Feedback"),
+            content: new Text("You've probably seen the feedback icon located at the top right of every page. This is because this app is under Beta testing and not stable. But it will, with your help. From this page, you can submit your feedback and your thoughts for us to improve the app. Your feedbacks can be about any bugs or design issues you spotted, or your thoughts about the app in general."),
+            actions: <Widget>[
+              // usually buttons at the bottom of the dialog
+              new FlatButton(
+                child: new Text("Dismiss"),
+                onPressed: () {
+                  // Close the dialog
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
