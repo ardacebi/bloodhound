@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:bloodhound/home.dart';
 import 'package:bloodhound/notifications/notifications.dart';
 import 'package:bloodhound/friends/friends.dart';
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
       home: MyBottomNavigationBar(),
       theme: ThemeData(
         // Define the default brightness and colors.
-        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         brightness: Brightness.light,
         primaryColor: Color(0xffba7e51),
         accentColor: Color(0xffe9af84),

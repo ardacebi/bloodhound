@@ -10,6 +10,13 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  var _nameController = TextEditingController();
+  var _usernameController = TextEditingController();
+  var _bioController = TextEditingController();
+  final FocusNode _nameFocus = FocusNode();
+  final FocusNode _usernameFocus = FocusNode();
+  final FocusNode _bioFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -45,7 +52,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
               height: _height / 25,
             ),
             new GestureDetector(
-              onTap: (){FilePicker.getMultiFilePath();},
+              onTap: () {
+                FilePicker.getMultiFilePath();
+              },
               child: CircleAvatar(
                 radius: _width < _height ? _width / 7 : _height / 4,
                 backgroundImage: NetworkImage(imgUrl),
@@ -61,7 +70,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     top: _width / 100,
                     bottom: _width / 30),
                 child: TextFormField(
-                  initialValue:("Arda Çebi"),
+                  controller: _nameController,
+                  focusNode: _nameFocus,
+                  onFieldSubmitted: (term) {
+                    _fieldFocusChange(context, _nameFocus, _usernameFocus);
+                  },
+                  textInputAction: TextInputAction.next,
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -76,12 +90,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     top: _width / 100,
                     bottom: _width / 30),
                 child: TextFormField(
-                  initialValue:("arda"),
+                  controller: _usernameController,
+                  focusNode: _usernameFocus,
+                  onFieldSubmitted: (term) {
+                    _fieldFocusChange(context, _usernameFocus, _bioFocus);
+                  },
+                  textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.alternate_email),
                     border: OutlineInputBorder(),
                     labelText: 'Username',
-                    
                   ),
                 )),
             new Padding(
@@ -91,8 +109,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     top: _width / 100,
                     bottom: _width / 30),
                 child: TextFormField(
-                  initialValue:("co-founder @ bloodhound, student, photographer, coder and many more"),
+                  controller: _bioController,
+                  focusNode: _bioFocus,
+                  onFieldSubmitted: (term) {},
                   keyboardType: TextInputType.multiline,
+                  textInputAction: TextInputAction.done,
                   maxLines: null,
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
@@ -137,4 +158,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SendFeedbackPage()));
   }
+}
+
+_fieldFocusChange(
+    BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+  currentFocus.unfocus();
+  FocusScope.of(context).requestFocus(nextFocus);
 }
