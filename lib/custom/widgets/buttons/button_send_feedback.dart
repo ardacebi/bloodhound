@@ -9,7 +9,7 @@ class BloodhoundButtonSendFeedback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.0,
+      height: 45.0,
       child: RaisedButton(
         onPressed: () {
           FilePicker.getMultiFilePath(); 
