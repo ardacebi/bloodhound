@@ -26,13 +26,15 @@ class _SettingsItemSecurityState extends State<SettingsItemSecurity> {
         children: ListTile.divideTiles(
           context: context,
           tiles: [
-            ListTile(
+            Padding(
+            padding: new EdgeInsets.only(top:10.0),
+              child: ListTile(
               title: Text('Lockdown Mode'),
               subtitle: Text("If you think your account is in danger or just want to keep it secure, you can disable other devices' access to your account."),
               onTap: () {},
               trailing: Icon(Icons.keyboard_arrow_right),
             ),
-            
+            ),
           ],
         ).toList(),
       ),

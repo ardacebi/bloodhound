@@ -27,7 +27,9 @@ class _SettingsItemPrivacyState extends State<SettingsItemPrivacy> {
         children: ListTile.divideTiles(
           context: context,
           tiles: [
-            ListTile(
+            Padding(
+              padding: new EdgeInsets.only(top:10.0),
+              child:ListTile(
               trailing: new Switch(
                   value: true,
                   activeColor: Colors.pink,
@@ -39,7 +41,7 @@ class _SettingsItemPrivacyState extends State<SettingsItemPrivacy> {
               subtitle: Text('When enabled, only approved friends will be able to see your friends and your meetups.'),
               onTap: () {},
             ),
-            
+            ),
           ],
         ).toList(),
       ),
