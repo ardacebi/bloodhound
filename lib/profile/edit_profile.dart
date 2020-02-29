@@ -60,7 +60,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     right: _width / 27,
                     top: _width / 100,
                     bottom: _width / 30),
-                child: TextField(
+                child: TextFormField(
+                  initialValue:("Arda Çebi"),
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -74,11 +75,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     right: _width / 27,
                     top: _width / 100,
                     bottom: _width / 30),
-                child: TextField(
+                child: TextFormField(
+                  initialValue:("arda"),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.alternate_email),
                     border: OutlineInputBorder(),
                     labelText: 'Username',
+                    
                   ),
                 )),
             new Padding(
@@ -87,7 +90,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     right: _width / 27,
                     top: _width / 100,
                     bottom: _width / 30),
-                child: TextField(
+                child: TextFormField(
+                  initialValue:("co-founder @ bloodhound, student, photographer, coder and many more"),
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
                   textCapitalization: TextCapitalization.sentences,
