@@ -12,7 +12,6 @@ class BloodhoundButtonSendFeedback extends StatelessWidget {
       height: 45.0,
       child: RaisedButton(
         onPressed: () {
-          FilePicker.getMultiFilePath(); 
         },
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),

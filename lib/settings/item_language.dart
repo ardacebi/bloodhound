@@ -53,7 +53,7 @@ class _SettingsItemLanguageState extends State<SettingsItemLanguage> {
             ListTile(
               trailing: new Radio(
                 groupValue: _radioValue1,
-                  value: 0,
+                  value: 1,
                   activeColor: Colors.pink,
                   onChanged: _handleRadioValueChange1),
               title: Text('English'),
@@ -63,7 +63,7 @@ class _SettingsItemLanguageState extends State<SettingsItemLanguage> {
             ListTile(
               trailing: new Radio(
                 groupValue: _radioValue1,
-                  value:1,
+                  value:2,
                   activeColor: Colors.pink,
                   onChanged: _handleRadioValueChange1),
               title: Text('Türkçe'),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:bloodhound/schedule/add_event.dart';
 import 'package:bloodhound/notifications/notifications.dart';
 import 'package:flutter_clean_calendar/flutter_clean_calendar.dart';
 import 'package:bloodhound/schedule/event_details.dart';

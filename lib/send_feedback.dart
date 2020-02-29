@@ -104,7 +104,6 @@ class _SendFeedbackPageState extends State<SendFeedbackPage> {
                 margin: const EdgeInsets.only(left: 10.0, top: 15.0),
                 child: new BloodhoundButtonSendFeedback(
                   onPressed: () {
-                    FilePicker.getMultiFilePath();
                   },
                 ),
               ),

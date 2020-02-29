@@ -58,42 +58,66 @@ class _FriendsPageState extends State<FriendsPage> {
           context: context,
           tiles: [
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),
             ListTile(
-              leading: RoundedLetter(text: "A"),
+              leading: RoundedLetter(
+                text: "A",
+                shapeColor: Color(0xff573b25),
+                ),
               title: Text('Arda Çebi'),
               onTap: () {},
             ),

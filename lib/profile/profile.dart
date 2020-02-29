@@ -163,6 +163,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           top: _width / 100),
                       child: TextField(
                         decoration: InputDecoration(
+                          
                           prefixIcon: Icon(Icons.search),
                           border: OutlineInputBorder(),
                           labelText: 'Search past meetups',

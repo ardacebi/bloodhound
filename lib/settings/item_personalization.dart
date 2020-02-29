@@ -101,12 +101,12 @@ void _settingModalBottomSheetIcon(context) {
                 onTap: () => {},
               ),
               new ListTile(
-                title: new Text('Dark Side'),
+                title: new Text('Dark'),
                 subtitle: new Text("Dark version of the logo."),
                 onTap: () => {},
               ),
               new ListTile(
-                title: new Text('Light Side'),
+                title: new Text('Light'),
                 subtitle: new Text("Light version of the logo."),
                 onTap: () => {},
               ),

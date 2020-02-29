@@ -8,6 +8,7 @@ import 'package:bloodhound/settings/item_privacy.dart';
 import 'package:bloodhound/settings/item_security.dart';
 import 'package:bloodhound/settings/item_personalization.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -104,6 +105,12 @@ class _SettingsPageState extends State<SettingsPage> {
               trailing: Icon(Icons.keyboard_arrow_right),
               subtitle: Text('Learn more about the app'),
               onTap: () {navigateToAboutSection(context);},
+            ),
+             ListTile(
+              leading: Icon(Icons.group),
+              title: Text('Invite a friend'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {Share.share("Hey, can you take a look at Bloodhound? It's a social calendar with a meetup organization feature. See you there!");},
             ),
           ],
         ).toList(),

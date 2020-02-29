@@ -1,3 +1,4 @@
+import 'package:bloodhound/settings/item_licenses.dart';
 import 'package:flutter/material.dart';
 
 class SettingsItemAbout extends StatefulWidget {
@@ -35,7 +36,7 @@ class _SettingsItemAboutState extends State<SettingsItemAbout> {
               title: Text('Open Source Licenses'),
               subtitle: Text('See open source licenses used in this application'),
               trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              onTap: () {navigateToLicensesSection(context);},
             ),
             
           ],
@@ -43,4 +44,9 @@ class _SettingsItemAboutState extends State<SettingsItemAbout> {
       ),
     );
   }
+}
+
+Future navigateToLicensesSection(context) async {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => (SettingsItemLicenses())));
 }

@@ -7,6 +7,7 @@ import 'package:bloodhound/schedule/schedule.dart';
 import 'package:bloodhound/plan/plan.dart';
 import 'package:animations/animations.dart';
 import 'package:camera/camera.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
